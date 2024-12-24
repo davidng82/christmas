@@ -3,6 +3,7 @@ body {
   height: 100vh;
   background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
   overflow: hidden;
+  font-family: Verdana, sans-serif
 }
 
 .snow-container {
