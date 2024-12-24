@@ -173,10 +173,27 @@ function addTreeLights() {
   }
 }
 
+let countdownInterval; // Biến lưu trữ interval
+
 function updateCountdown() {
   const christmas = new Date(new Date().getFullYear(), 11, 25);
   const now = new Date();
   const diff = christmas - now;
+
+  if (diff <= 0) {
+    // Dừng đếm ngược khi tới 0
+    clearInterval(countdownInterval);
+
+    // Cập nhật giá trị cuối cùng là 00:00:00:00
+    document.getElementById('days').textContent = '00';
+    document.getElementById('hours').textContent = '00';
+    document.getElementById('minutes').textContent = '00';
+    document.getElementById('seconds').textContent = '00';
+
+    // Nếu cần, thêm logic hiển thị thông báo hoặc thực hiện hành động khác
+    document.getElementById('message').textContent = "Merry Christmas!";
+    return;
+  }
 
   const days = Math.floor(diff / (1000 * 60 * 60 * 24));
   const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -197,7 +214,12 @@ function updateCountdown() {
     .padStart(2, '0');
 }
 
-setInterval(updateCountdown, 1000);
+// Bắt đầu đếm ngược
+countdownInterval = setInterval(updateCountdown, 1000);
+
+// Gọi ngay lập tức để hiển thị trạng thái ban đầu
+updateCountdown();
+
 
 // Hiệu ứng mây trôi
 function animateClouds() {
