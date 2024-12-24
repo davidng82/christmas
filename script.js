@@ -112,7 +112,7 @@ function createGift() {
     '🎁 Merry Christmas 👸',
     '🎄 Giáng sinh an lành 🧚 ',
     '⭐ Năm mới hạnh phúc 🌸',
-    '🎅 Món quà tặng 🌻 ',
+    '🎅 Món quà tặng bé An 🌻 ',
   ];
 
   gift.addEventListener('click', () => {
